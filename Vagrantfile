@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
   # https://docs.vagrantup.com.
 
   config.vm.define :master do |m|
-    m.vm.box = "jessie-vbguest"
+    m.vm.box = "speedlight/jessie-vbguest"
     m.vm.hostname = "SaltMaster"
 
     m.ssh.username = "vagrant"
@@ -64,7 +64,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :minion01 do |m01|
-    m01.vm.box = "jessie-vbguest"
+    m01.vm.box = "speedlight/jessie-vbguest"
     m01.vm.hostname = "SaltMinion01"
 
     m01.ssh.username = "vagrant"
@@ -100,7 +100,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :minion02 do |m02|
-    m02.vm.box = "jessie-vbguest"
+    m02.vm.box = "speedlight/jessie-vbguest"
     m02.vm.hostname = "SaltMinion02"
 
     m02.ssh.username = "vagrant"

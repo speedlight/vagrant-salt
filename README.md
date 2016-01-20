@@ -15,12 +15,15 @@ Steps
 
 Just clone the repo and run vagrant:
 
-.. code-block:: bash
+```bash
     git clone https://github.com/speedlight/vagrant-salt.git
     cd vagrant-salt
     vagrant up
+```
 
 Then enter in the salt master and start working with salt:
-.. code-block:: bash
+
+```bash
     vagrant ssh master
     sudo salt \* test.ping
+```
