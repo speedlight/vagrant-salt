@@ -15,7 +15,7 @@ Steps
 
 Just clone the repo and run vagrant:
 
-```bash
+``` bash
     git clone https://github.com/speedlight/vagrant-salt.git
     cd vagrant-salt
     vagrant up
