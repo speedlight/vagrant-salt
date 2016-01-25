@@ -4,6 +4,8 @@ Vagrant with Salt
 
 A vagrant configuration to create 3 VMs based on Debian 8 "Jessie". One as salt master and two as minions.
 
+The box is downloaded from https://atlas.hashicorp.com/speedlight/boxes/jessie-vbguest and is a vanilla Debian 8 only with virtualbox guest additions because for salt we need the shared folders.
+
 Requirements
 ============
 
