@@ -4,7 +4,7 @@
 # Setting nameserver for vms
 $resolv = <<SCRIPT
 echo 'Setting resolv.conf...'
-echo 'nameserver 192.168.60.1' > /config/resolv.conf
+echo 'nameserver 10.10.10.1' > /config/resolv.conf
 SCRIPT
 
 #Some APT tasks
@@ -19,14 +19,14 @@ Vagrant.configure(2) do |config|
   # https://docs.vagrantup.com.
 
   config.vm.define :master do |m|
-    m.vm.box = "speedlight/jessie-vbguest"
+    m.vm.box = "debian/jessie64"
     m.vm.hostname = "SaltMaster"
 
-    m.ssh.username = "vagrant"
-    m.ssh.password = "vagrant"
+    #m.ssh.username = "vagrant"
+    #m.ssh.password = "vagrant"
     m.ssh.insert_key = "true"
 
-    m.vm.network :private_network, ip: "192.168.60.10"
+    m.vm.network :private_network, ip: "10.10.10.2"
     # m.vm.network "forwarded_port", guest: 80, host: 8080
 
     # m.vm.provision :shell do |s|
@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
        vb.gui = false
        vb.customize [ "modifyvm", :id,
          "--name", "SaltMaster",
-         "--memory", "512",
+         "--memory", "256",
          "--cpus", "1",
          "--vram", "16",
          "--cpuexecutioncap", "50",
@@ -64,14 +64,14 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :minion01 do |m01|
-    m01.vm.box = "speedlight/jessie-vbguest"
+    m01.vm.box = "debian/jessie64"
     m01.vm.hostname = "SaltMinion01"
 
-    m01.ssh.username = "vagrant"
-    m01.ssh.password = "vagrant"
+    #m01.ssh.username = "vagrant"
+    #m01.ssh.password = "vagrant"
     m01.ssh.insert_key = "true"
 
-    m01.vm.network :private_network, ip: "192.168.60.11"
+    m01.vm.network :private_network, ip: "10.10.10.3"
     # m.vm.network "forwarded_port", guest: 80, host: 8080
 
     # m01.vm.provision "shell", inline: $resolv
@@ -100,14 +100,14 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :minion02 do |m02|
-    m02.vm.box = "speedlight/jessie-vbguest"
+    m02.vm.box = "debian/jessie64"
     m02.vm.hostname = "SaltMinion02"
 
-    m02.ssh.username = "vagrant"
-    m02.ssh.password = "vagrant"
+    #m02.ssh.username = "vagrant"
+    #m02.ssh.password = "vagrant"
     m02.ssh.insert_key = "true"
 
-    m02.vm.network :private_network, ip: "192.168.60.12"
+    m02.vm.network :private_network, ip: "10.10.10.4"
     # m.vm.network "forwarded_port", guest: 80, host: 8080
 
     # m02.vm.provision "shell", inline: $resolv
